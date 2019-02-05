@@ -2,6 +2,7 @@ from django.conf.urls import url
 from . import views
 from django.urls import path
 
+
 app_name = 'portfolio'
 urlpatterns = [
     path('', views.home, name='home'),
@@ -17,5 +18,10 @@ urlpatterns = [
     path('investment/create/', views.investment_new, name='investment_new'),
     path('investment/<int:pk>/edit/', views.investment_edit, name='investment_edit'),
     path('investment/<int:pk>/delete/', views.investment_delete, name='investment_delete'),
+    url(r'^mutualfund/$', views.mutualfund_list, name='mutualfund_list'),
+    url(r'^mutualfund/(?P<pk>\d+)/delete/$', views.mutualfund_delete, name='mutualfund_delete'),
+    url(r'^mutualfund/(?P<pk>\d+)/edit/$', views.mutualfund_edit, name='mutualfund_edit'),
+    url(r'^mutualfund/create/$', views.mutualfund_new, name='mutualfund_new'),
+
 
 ]

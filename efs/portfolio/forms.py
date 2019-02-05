@@ -1,5 +1,11 @@
 from django import forms
-from .models import Customer, Stock, Investment
+from .models import Customer, Stock, Investment, Mutualfund
+from django import forms
+
+
+class LoginForm(forms.Form):
+     username = forms.CharField()
+     password = forms.CharField(widget=forms.PasswordInput)
 
 class CustomerForm(forms.ModelForm):
     class Meta:
@@ -16,3 +22,9 @@ class InvestmentForm(forms.ModelForm):
        model = Investment
        fields = ('customer', 'category','description', 'acquired_value', 'acquired_date', 'recent_value', 'recent_date')
 
+class MutualfundForm(forms.ModelForm):
+    class Meta:
+        model = Mutualfund
+        fields = (
+            'customer', 'category', 'description', 'acquired_value', 'acquired_date', 'recent_value',
+            'recent_date',)
